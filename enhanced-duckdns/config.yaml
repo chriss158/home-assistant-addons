@@ -1,0 +1,47 @@
+---
+version: 1.15.0
+slug: enh-duckdns
+name: Enhanced Duck DNS
+init: false
+description: >-
+  Free Dynamic DNS (DynDNS or DDNS) service with Let's Encrypt/ZeroSSL/Buypass support
+url: https://github.com/chriss158/duckdns-ha-addon
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+map:
+  - ssl:rw
+options:
+  domains:
+    - null
+  token: null
+  aliases: []
+  ca: letsencrypt
+  ca_options:
+    accept_terms: false
+    contact_email: null
+    algo: secp384r1
+    certfile: fullchain.pem
+    keyfile: privkey.pem
+  seconds: 300
+schema:
+  domains:
+    - match(.+\.duckdns\.org)
+  token: str
+  aliases:
+    - alias: str
+      domain: str
+  ca: list(letsencrypt|letsencrypt-test|zerossl|buypass|buypass-test)  
+  ca_options:
+    accept_terms: bool
+    contact_email: email
+    algo: list(rsa|prime256v1|secp384r1)
+    certfile: str
+    keyfile: str
+  seconds: int
+  ipv4: str?
+  ipv6: str?
+startup: services

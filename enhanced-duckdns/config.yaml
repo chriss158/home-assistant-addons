@@ -37,7 +37,7 @@ schema:
   ca: list(letsencrypt|letsencrypt-test|zerossl|buypass|buypass-test)  
   ca_options:
     accept_terms: bool
-    contact_email: email
+    contact_email: email?
     algo: list(rsa|prime256v1|secp384r1)
     certfile: str
     keyfile: str

@@ -5,7 +5,7 @@ name: Enhanced Duck DNS
 init: false
 description: >-
   Free Dynamic DNS (DynDNS or DDNS) service with Let's Encrypt/ZeroSSL/Buypass support
-url: https://github.com/chriss158/duckdns-ha-addon
+url: https://github.com/chriss158/home-assistant-addons/tree/main/enhanced-duckdns
 arch:
   - armhf
   - armv7

@@ -11,4 +11,4 @@ Chriss158's [Home Assistant Add-ons](https://www.home-assistant.io/addons/).
 
 ## Add-ons
 
-* [Enhanced DuckDNS](enhanced-duckdns/README.md)
+* [Enhanced DuckDNS](enhanced-duckdns/)

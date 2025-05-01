@@ -1,0 +1,6 @@
+---
+configuration:
+  secret_encryption_key:
+    name: Secret encryption key
+    description: >-
+      The secret encryption key needs to be set. See: https://homarr.dev/docs/getting-started/installation/docker on how to generate a key

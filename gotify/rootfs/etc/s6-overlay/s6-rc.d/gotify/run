@@ -1,0 +1,10 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Community Add-on: Gotify
+# Runs Gotify
+# ==============================================================================
+bashio::log.info 'Starting Gotify...'
+
+# Run Gotify
+exec /opt/gotify/gotify

@@ -1,0 +1,29 @@
+---
+configuration:
+  ssl:
+    name: SSL
+    description: >-
+      Aktiviert/Deaktiviert SSL (HTTPS) für die Weboberfläche.
+  certfile:
+    name: Zertifikatsdatei
+    description: >-
+      Die Zertifikatsdatei, die für SSL verwendet werden soll. Beachte, dass diese Datei
+      im Ordner /ssl/ vorhanden sein muss.
+  keyfile:
+    name: Private Schlüsseldatei
+    description: >-
+      Die für SSL zu verwendende private Schlüsseldatei. Beachten, dass diese Datei
+      im Ordner /ssl/ vorhanden sein muss.
+  database:
+    name: Datenbank
+    description: >-
+      Sie können die interne sqlite3 Datenbank oder eine externe MySQL- oder Postgres-Datenbank verwenden.
+      Wenn du eine externe Datenbank verwendest, dann musst du zusätzlich die Datenbankverbindung setzen.
+  database_connection:
+    name: Datenbankverbindung
+    description: >-
+      Wenn du eine externe Datenbank wie MySQL verwendst, müssen du Datenbankverbindung angeben. Siehe hier: https://gotify.net/docs/config#database
+  registration:
+    name: Registrierung
+    description: >-
+      Aktiviere Registrierungen für Gotify

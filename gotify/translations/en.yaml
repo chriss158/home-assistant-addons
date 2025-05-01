@@ -1,0 +1,30 @@
+---
+configuration:
+  ssl:
+    name: SSL
+    description: >-
+      Enables/Disables SSL (HTTPS) on the web interface.
+  certfile:
+    name: Certificate file
+    description: >-
+      The certificate file to use for SSL. Note that this file must
+      exist in the /ssl/ folder.
+  keyfile:
+    name: Private key file
+    description: >-
+      The private key file to use for SSL. Note that this file must
+      exist in the /ssl/ folder.
+  database:
+    name: Database
+    description: >-
+      You can use the internal sqlite3 databse or use an external MySQL or Postgres database
+      If you use an external database. Please set also the database connection.
+  database_connection:
+    name: Database connection
+    description: >-
+      If you use an external database like MySQL, you need to set the database connection.
+      Please see here: https://gotify.net/docs/config#database
+  registration:
+    name: Registration
+    description: >-
+      Enable registrations for Gotify

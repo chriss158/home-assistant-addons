@@ -1,0 +1,30 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Community Add-on: Gotify
+# Configures Gotify
+# ==============================================================================
+
+mkdir -p /config/plugins /config/images
+
+bashio::config.require.ssl
+
+DATABASE_DIALECT=$(bashio::config 'database' 'sqlite3')
+DATABASE_CONNECTION=$(bashio::config 'database_connection')
+if [ "${DATABASE_DIALECT}" = "sqlite3" ]; then
+    DATABASE_CONNECTION="/data/gotify.db"
+else
+    bashio::config.require 'database_connection' "If you are using a ${DATABASE_DIALECT} database, then you must specify connection details. See here: https://gotify.net/docs/config#database"
+fi
+
+bashio::var.json \
+    ssl_enabled "$(bashio::config 'ssl')" \
+    ssl_certfile "$(bashio::config 'certfile')" \
+    ssl_certkey "$(bashio::config 'keyfile')" \
+    database_dialect $DATABASE_DIALECT \
+    database_connection $DATABASE_CONNECTION \
+    registration "$(bashio::config 'registration' false)" \
+    | tempio \
+        -template /etc/gotify/config.gtpl \
+        -out /etc/gotify/config.yml
+

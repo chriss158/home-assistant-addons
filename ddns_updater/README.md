@@ -1,0 +1,69 @@
+# Home Assistant Add-on: DDNS Updater
+
+Lightweight universal DDNS Updater to keep DNS A and/or AAAA records updated for multiple DNS providers
+
+![Supports aarch64 Architecture][aarch64-shield] ![Supports amd64 Architecture][amd64-shield] ![Supports armv7 Architecture][armv7-shield]
+
+## About
+
+[DDNS Updater][ddns-updater] is a lightweight Docker container written in Go that automatically fetches your public IP and updates your DNS records only when they change, exposing a built-in Web UI for easy monitoring and control.
+
+It periodically resolves configured domains, compares the result to your current IP to avoid unnecessary API calls, and updates only out-of-sync records to prevent rate limiting.
+
+Supported DNS providers:
+- [Aliyun](https://github.com/qdm12/ddns-updater/blob/master/docs/aliyun.md)
+- [Allinkl](https://github.com/qdm12/ddns-updater/blob/master/docs/allinkl.md)
+- [ChangeIP](https://github.com/qdm12/ddns-updater/blob/master/docs/changeip.md)
+- [Cloudflare](https://github.com/qdm12/ddns-updater/blob/master/docs/cloudflare.md)
+- [Custom](https://github.com/qdm12/ddns-updater/blob/master/docs/custom.md)
+- [DDNSS.de](https://github.com/qdm12/ddns-updater/blob/master/docs/ddnss.de.md)
+- [deSEC](https://github.com/qdm12/ddns-updater/blob/master/docs/desec.md)
+- [DigitalOcean](https://github.com/qdm12/ddns-updater/blob/master/docs/digitalocean.md)
+- [DD24](https://github.com/qdm12/ddns-updater/blob/master/docs/dd24.md)
+- [Domeneshop](https://github.com/qdm12/ddns-updater/blob/master/docs/domeneshop.md)
+- [DonDominio](https://github.com/qdm12/ddns-updater/blob/master/docs/dondominio.md)
+- [DNSOMatic](https://github.com/qdm12/ddns-updater/blob/master/docs/dnsomatic.md)
+- [DNSPod](https://github.com/qdm12/ddns-updater/blob/master/docs/dnspod.md)
+- [Dreamhost](https://github.com/qdm12/ddns-updater/blob/master/docs/dreamhost.md)
+- [DuckDNS](https://github.com/qdm12/ddns-updater/blob/master/docs/duckdns.md)
+- [DynDNS](https://github.com/qdm12/ddns-updater/blob/master/docs/dyndns.md)
+- [Dynu](https://github.com/qdm12/ddns-updater/blob/master/docs/dynu.md)
+- [DynV6](https://github.com/qdm12/ddns-updater/blob/master/docs/dynv6.md)
+- [EasyDNS](https://github.com/qdm12/ddns-updater/blob/master/docs/easydns.md)
+- [FreeDNS](https://github.com/qdm12/ddns-updater/blob/master/docs/freedns.md)
+- [Gandi](https://github.com/qdm12/ddns-updater/blob/master/docs/gandi.md)
+- [GCP](https://github.com/qdm12/ddns-updater/blob/master/docs/gcp.md)
+- [GoDaddy](https://github.com/qdm12/ddns-updater/blob/master/docs/godaddy.md)
+- [GoIP.de](https://github.com/qdm12/ddns-updater/blob/master/docs/goip.md)
+- [He.net](https://github.com/qdm12/ddns-updater/blob/master/docs/he.net.md)
+- [Infomaniak](https://github.com/qdm12/ddns-updater/blob/master/docs/infomaniak.md)
+- [INWX](https://github.com/qdm12/ddns-updater/blob/master/docs/inwx.md)
+- [Ionos](https://github.com/qdm12/ddns-updater/blob/master/docs/ionos.md)
+- [Linode](https://github.com/qdm12/ddns-updater/blob/master/docs/linode.md)
+- [Loopia](https://github.com/qdm12/ddns-updater/blob/master/docs/loopia.md)
+- [LuaDNS](https://github.com/qdm12/ddns-updater/blob/master/docs/luadns.md)
+- [Myaddr](https://github.com/qdm12/ddns-updater/blob/master/docs/myaddr.md)
+- [Name.com](https://github.com/qdm12/ddns-updater/blob/master/docs/name.com.md)
+- [Namecheap](https://github.com/qdm12/ddns-updater/blob/master/docs/namecheap.md)
+- [NameSilo](https://github.com/qdm12/ddns-updater/blob/master/docs/namesilo.md)
+- [Netcup](https://github.com/qdm12/ddns-updater/blob/master/docs/netcup.md)
+- [NoIP](https://github.com/qdm12/ddns-updater/blob/master/docs/noip.md)
+- [Now-DNS](https://github.com/qdm12/ddns-updater/blob/master/docs/nowdns.md)
+- [Njalla](https://github.com/qdm12/ddns-updater/blob/master/docs/njalla.md)
+- [OpenDNS](https://github.com/qdm12/ddns-updater/blob/master/docs/opendns.md)
+- [OVH](https://github.com/qdm12/ddns-updater/blob/master/docs/ovh.md)
+- [Porkbun](https://github.com/qdm12/ddns-updater/blob/master/docs/porkbun.md)
+- [Selfhost.de](https://github.com/qdm12/ddns-updater/blob/master/docs/selfhost.de.md)
+- [Servercow.de](https://github.com/qdm12/ddns-updater/blob/master/docs/servercow.md)
+- [Spdyn](https://github.com/qdm12/ddns-updater/blob/master/docs/spdyn.md)
+- [Strato.de](https://github.com/qdm12/ddns-updater/blob/master/docs/strato.md)
+- [Variomedia.de](https://github.com/qdm12/ddns-updater/blob/master/docs/variomedia.md)
+- [Vultr](https://github.com/qdm12/ddns-updater/blob/master/docs/vultr.md)
+- [Zoneedit](https://github.com/qdm12/ddns-updater/blob/master/docs/zoneedit.md)
+
+If you provider is not in the list, you can also try to use a [Custom provider](https://github.com/qdm12/ddns-updater/blob/master/docs/custom.md).
+
+[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+[armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
+[ddns-updater]: https://github.com/qdm12/ddns-updater

@@ -1,0 +1,55 @@
+---
+configuration:
+  log_level:
+    name: Log Level
+    description: >-
+      Sets the verbosity level of log output.
+  providers:
+    name: Providers
+    description: >-
+      List of DNS providers for dynamic updates. See detailed configuration in the GitHub repository:  
+      https://github.com/qdm12/ddns-updater?tab=readme-ov-file#configuration
+  period:
+    name: Update Period
+    description: >-
+      How often to check your public IP and attempt updates (e.g. "5m", "1h"). 
+  update_cooldown_period:
+    name: Update Cooldown Period
+    description: >-
+      Duration to cooldown between updates for each record. This is useful to avoid being rate limited or banned.
+  publicip_fetchers:
+    name: Public IP Fetchers
+    description: >-
+      Which public-IP detection methods to use: "all", "http", "dns".
+  publicip_http_providers:
+    name: Public IPv4/IPv6 HTTP Providers
+    description: >-
+      Which HTTP services to query for your public IP (e.g. "all", "ipify", "ifconfig.co"). See all options: https://github.com/qdm12/ddns-updater/tree/master?tab=readme-ov-file#public-ip 
+  publicipv4_http_providers:
+    name: Public IPv4 HTTP Providers
+    description: >-
+      Specific HTTP providers for IPv4 only. See all options: https://github.com/qdm12/ddns-updater/tree/master?tab=readme-ov-file#public-ip
+  publicipv6_http_providers:
+    name: Public IPv6 HTTP Providers
+    description: >-
+      Specific HTTP providers for IPv6 only. See all options: https://github.com/qdm12/ddns-updater/tree/master?tab=readme-ov-file#public-ip
+  publicip_dns_providers:
+    name: Public IP DNS Providers
+    description: >-
+      DNS servers to query for your public IP (e.g. "all", "google"). See all options: https://github.com/qdm12/ddns-updater/tree/master?tab=readme-ov-file#public-ip
+  publicip_dns_timeout:
+    name: Public IP DNS Timeout
+    description: >-
+      Timeout for DNS-based public IP lookups (e.g. "3s", "5m").
+  shoutrrr_addresses:
+    name: Shoutrrr Addresses
+    description: >-
+      List of notification endpoints (e.g. "telegram:xxxx", "discord:yyyy"). See all options: https://containrrr.dev/shoutrrr/v0.8/services/overview/
+  shoutrrr_default_title:
+    name: Shoutrrr default title  
+    description: >-
+      Default title for Shoutrrr notifications
+  resolver_address:
+    name: Resolver address 
+    description: >-
+      A plaintext DNS address to use to resolve your domain names defined in your settings only. For example it can be 1.1.1.1:53. This is useful for split dns. See https://github.com/qdm12/ddns-updater/issues/389

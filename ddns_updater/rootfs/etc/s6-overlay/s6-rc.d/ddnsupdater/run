@@ -1,0 +1,43 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Community Add-on: DDNS-Updater
+# Runs DDNS-Updater
+# ==============================================================================
+bashio::log.info 'Starting DDNS-Updater...'
+
+LOG_LEVEL=$(bashio::config 'log_level' 'info')
+PROVIDERS_JSON=$(bashio::config 'providers')
+PERIOD=$(bashio::config 'period' '5m')
+UPDATE_COOLDOWN_PERIOD=$(bashio::config 'update_cooldown_period' '5m')
+PUBLICIP_FETCHERS=$(bashio::config 'publicip_fetchers' 'all')
+PUBLICIP_HTTP_PROVIDERS=$(bashio::config 'publicip_http_providers' 'all')
+PUBLICIPV4_HTTP_PROVIDERS=$(bashio::config 'publicipv4_http_providers' 'all')
+PUBLICIPV6_HTTP_PROVIDERS=$(bashio::config 'publicipv6_http_providers' 'all')
+PUBLICIP_DNS_PROVIDERS=$(bashio::config 'publicip_dns_providers' 'all')
+PUBLICIP_DNS_TIMEOUT=$(bashio::config 'publicip_dns_timeout' '3s')
+RESOLVER_ADDRESS=$(bashio::config 'resolver_address' '')
+SHOUTRRR_ADDRESSES=$(bashio::config 'shoutrrr_addresses' '')
+SHOUTRRR_DEFAULT_TITLE=$(bashio::config 'shoutrrr_default_title' 'DDNS Updater')
+
+
+SETTINGS_FILE="/config/config.json"
+
+echo "{\"settings\": $(echo "${PROVIDERS_JSON}" | jq -s '.')}" > "${SETTINGS_FILE}"
+
+
+# Run DDNS-Updater
+exec /opt/ddns-updater/ddns-updater \
+  --period "${PERIOD}" \
+  --update-cooldown-period "${UPDATE_COOLDOWN_PERIOD}" \
+  --publicip-fetchers "${PUBLICIP_FETCHERS}" \
+  --publicip-http-providers "${PUBLICIP_HTTP_PROVIDERS}" \
+  --publicipv4-http-providers "${PUBLICIPV4_HTTP_PROVIDERS}" \
+  --publicipv6-http-providers "${PUBLICIPV6_HTTP_PROVIDERS}" \
+  --publicip-dns-providers "${PUBLICIP_DNS_PROVIDERS}" \
+  --publicip-dns-timeout "${PUBLICIP_DNS_TIMEOUT}" \
+  --resolver-address "${RESOLVER_ADDRESS}" \
+  --log-level "${LOG_LEVEL}" \
+  --shoutrrr-addresses "${SHOUTRRR_ADDRESSES}" \
+  --shoutrrr-default-title "${SHOUTRRR_DEFAULT_TITLE}" \
+  --datadir /config

@@ -1,0 +1,63 @@
+---
+configuration:
+  log_level:
+    name: Log-Level
+    description: >-
+      Legt das Detail der Protokollausgaben fest. 
+  providers:
+    name: Providers
+    description: >-
+      Liste der DNS-Anbieter für dynamische Updates. Siehe genaue Konfigurations-Details im GitHub-Repository:  
+      https://github.com/qdm12/ddns-updater?tab=readme-ov-file#configuration
+  period:
+    name: Aktualisierungsintervall
+    description: >-
+      Legt fest, wie oft die öffentliche IP geprüft und Updates durchgeführt werden  
+      (z. B. "5m", "1h").
+  update_cooldown_period:
+    name: Cooldown-Intervall
+    description: >-
+      Dauer der Cooldownzeit zwischen den Aktualisierungen für jeden Datensatz. Dies ist nützlich, um ein Rate-Limit zu vermeiden.
+  publicip_fetchers:
+    name: Methoden zur IP-Ermittlung
+    description: >-
+      Legt fest, welche Verfahren zur Ermittlung der öffentlichen IP genutzt werden:  
+      "all", "http" oder "dns".
+  publicip_http_providers:
+    name: HTTP-Anbieter für öffentliche IP
+    description: >-
+      Liste der HTTP-Dienste zur Abfrage der öffentlichen IPv4/IPv6-Adresse  
+      (z. B. "all", "ipify", "ifconfig.co"). Siehe alle Einstellungen: https://github.com/qdm12/ddns-updater/tree/master?tab=readme-ov-file#public-ip 
+  publicipv4_http_providers:
+    name: HTTP-Anbieter für IPv4
+    description: >-
+      Spezifische HTTP-Dienste nur für IPv4-Abfragen. Siehe alle Einstellungen: https://github.com/qdm12/ddns-updater/tree/master?tab=readme-ov-file#public-ip 
+  publicipv6_http_providers:
+    name: HTTP-Anbieter für IPv6
+    description: >-
+      Spezifische HTTP-Dienste nur für IPv6-Abfragen. Siehe alle Einstellungen: https://github.com/qdm12/ddns-updater/tree/master?tab=readme-ov-file#public-ip 
+  publicip_dns_providers:
+    name: DNS-Anbieter für öffentliche IP
+    description: >-
+      DNS-Server zur Ermittlung der öffentlichen IP  
+      (z. B. "all", "google"). Siehe alle Einstellungen: https://github.com/qdm12/ddns-updater/tree/master?tab=readme-ov-file#public-ip 
+  publicip_dns_timeout:
+    name: DNS-Zeitlimit
+    description: >-
+      Zeitlimit für DNS-basierte Abfragen der öffentlichen IP
+      (z. B. "3s", "5m").
+  shoutrrr_addresses:
+    name: Shoutrrr-Adressen
+    description: >-
+      Liste der Endpunkte für Benachrichtigungen  
+      (z. B. "telegram:xxxx", "discord:yyyy"). Siehe alle Einstellungen: https://containrrr.dev/shoutrrr/v0.8/services/overview/
+  shoutrrr_default_title:
+    name: Standardtitel für Shoutrrr
+    description: >-
+      Vorgabetitel für alle Shoutrrr-Benachrichtigungen.
+  resolver_address:
+    name: Resolver-Adresse
+    description: >-
+      DNS-Resolver (z. B. "1.1.1.1:53") nur für die in den Einstellungen definierten Domains.  
+      Nützlich bei Split-DNS-Szenarien. Siehe https://github.com/qdm12/ddns-updater/issues/389
+

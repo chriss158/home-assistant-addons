@@ -37,7 +37,7 @@ exec /opt/ddns-updater/ddns-updater \
   --publicipv6-http-providers "${PUBLICIPV6_HTTP_PROVIDERS}" \
   --publicip-dns-providers "${PUBLICIP_DNS_PROVIDERS}" \
   --publicip-dns-timeout "${PUBLICIP_DNS_TIMEOUT}" \
-  --resolver-address "${RESOLVER_ADDRESS}" \
+  ${RESOLVER_ADDRESS:+--resolver-address "${RESOLVER_ADDRESS}"} \
   --log-level "${LOG_LEVEL}" \
   ${SHOUTRRR_ADDRESSES:+--shoutrrr-addresses "${SHOUTRRR_ADDRESSES}"} \
   --shoutrrr-default-title "${SHOUTRRR_DEFAULT_TITLE}" \

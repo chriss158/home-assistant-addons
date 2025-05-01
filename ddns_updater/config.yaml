@@ -25,16 +25,6 @@ ports_description:
   8000/tcp: Web interface (Not required for Ingress)
 options:
   period: 5m
-  update_cooldown_period: 5m
-  publicip_fetchers: all
-  publicip_http_providers: all
-  publicipv4_http_providers: all
-  publicipv6_http_providers: all
-  publicip_dns_providers: all
-  publicip_dns_timeout: 3s
-  resolver_address: ""
-  shoutrrr_addresses: ""
-  shoutrrr_default_title: DDNS Updater
   providers:
     - provider: custom
       domain: example.com

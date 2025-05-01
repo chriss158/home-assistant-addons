@@ -40,7 +40,14 @@ CMD=(/opt/ddns-updater/ddns-updater \
   --log-level "${LOG_LEVEL}" \
   --shoutrrr-default-title "${SHOUTRRR_DEFAULT_TITLE}")
 
-[ -n "${RESOLVER_ADDRESS}" ] && CMD+=(--resolver-address "${RESOLVER_ADDRESS}")
-[ -n "${SHOUTRRR_ADDRESSES}" ] && CMD+=(--shoutrrr-addresses "${SHOUTRRR_ADDRESSES}")
+# Add resolver address if it is not empty
+if [ -n "${RESOLVER_ADDRESS}" ] && [ "${RESOLVER_ADDRESS}" != "null" ]; then
+  CMD+=(--resolver-address "${RESOLVER_ADDRESS}")
+fi
+
+# Add Shoutrrr addresses if they are not empty and not "null"
+if [ -n "${SHOUTRRR_ADDRESSES}" ] && [ "${SHOUTRRR_ADDRESSES}" != "null" ]; then
+  CMD+=(--shoutrrr-addresses "${SHOUTRRR_ADDRESSES}")
+fi
 
 exec "${CMD[@]}"

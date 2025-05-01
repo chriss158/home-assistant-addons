@@ -26,7 +26,8 @@ SETTINGS_FILE="/config/config.json"
 echo "{\"settings\": $(echo "${PROVIDERS_JSON}" | jq -s '.')}" > "${SETTINGS_FILE}"
 
 
-# Run DDNS-Updater
+# Execute the DDNS-Updater binary with the configured options
+# Add Shoutrrr addresses only if not empty
 exec /opt/ddns-updater/ddns-updater \
   --period "${PERIOD}" \
   --update-cooldown-period "${UPDATE_COOLDOWN_PERIOD}" \
@@ -38,6 +39,6 @@ exec /opt/ddns-updater/ddns-updater \
   --publicip-dns-timeout "${PUBLICIP_DNS_TIMEOUT}" \
   --resolver-address "${RESOLVER_ADDRESS}" \
   --log-level "${LOG_LEVEL}" \
-  --shoutrrr-addresses "${SHOUTRRR_ADDRESSES}" \
+  ${SHOUTRRR_ADDRESSES:+--shoutrrr-addresses "${SHOUTRRR_ADDRESSES}"} \
   --shoutrrr-default-title "${SHOUTRRR_DEFAULT_TITLE}" \
   --datadir /config

@@ -27,8 +27,8 @@ echo "{\"settings\": $(echo "${PROVIDERS_JSON}" | jq -s '.')}" > "${SETTINGS_FIL
 
 
 # Execute the DDNS-Updater binary with the configured options
-# Add Shoutrrr addresses only if not empty
-exec /opt/ddns-updater/ddns-updater \
+CMD=(/opt/ddns-updater/ddns-updater \
+  --datadir /config \
   --period "${PERIOD}" \
   --update-cooldown-period "${UPDATE_COOLDOWN_PERIOD}" \
   --publicip-fetchers "${PUBLICIP_FETCHERS}" \
@@ -37,8 +37,10 @@ exec /opt/ddns-updater/ddns-updater \
   --publicipv6-http-providers "${PUBLICIPV6_HTTP_PROVIDERS}" \
   --publicip-dns-providers "${PUBLICIP_DNS_PROVIDERS}" \
   --publicip-dns-timeout "${PUBLICIP_DNS_TIMEOUT}" \
-  ${RESOLVER_ADDRESS:+--resolver-address "${RESOLVER_ADDRESS}"} \
   --log-level "${LOG_LEVEL}" \
-  ${SHOUTRRR_ADDRESSES:+--shoutrrr-addresses "${SHOUTRRR_ADDRESSES}"} \
-  --shoutrrr-default-title "${SHOUTRRR_DEFAULT_TITLE}" \
-  --datadir /config
+  --shoutrrr-default-title "${SHOUTRRR_DEFAULT_TITLE}")
+
+[ -n "${RESOLVER_ADDRESS}" ] && CMD+=(--resolver-address "${RESOLVER_ADDRESS}")
+[ -n "${SHOUTRRR_ADDRESSES}" ] && CMD+=(--shoutrrr-addresses "${SHOUTRRR_ADDRESSES}")
+
+exec "${CMD[@]}"

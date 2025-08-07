@@ -20,11 +20,17 @@ RESOLVER_ADDRESS=$(bashio::config 'resolver_address' '')
 SHOUTRRR_ADDRESSES=$(bashio::config 'shoutrrr_addresses' '')
 SHOUTRRR_DEFAULT_TITLE=$(bashio::config 'shoutrrr_default_title' 'DDNS Updater')
 
-
 SETTINGS_FILE="/config/config.json"
+CUSTOM_SETTINGS_FILE="/config/config_custom.json"
 
-echo "{\"settings\": $(echo "${PROVIDERS_JSON}" | jq -s '.')}" > "${SETTINGS_FILE}"
-
+# Check if custom config exists and use it, otherwise create default config
+if [ -f "${CUSTOM_SETTINGS_FILE}" ]; then
+  bashio::log.info "Using custom configuration file: ${CUSTOM_SETTINGS_FILE}"
+  SETTINGS_FILE="${CUSTOM_SETTINGS_FILE}"
+else
+  bashio::log.info "Creating default configuration file from addon configuration: ${SETTINGS_FILE}"
+  echo "{\"settings\": $(echo "${PROVIDERS_JSON}" | jq '.')}" > "${SETTINGS_FILE}"
+fi
 
 # Execute the DDNS-Updater binary with the configured options
 CMD=(/opt/ddns-updater/ddns-updater \

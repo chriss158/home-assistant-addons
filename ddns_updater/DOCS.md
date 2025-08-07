@@ -20,6 +20,41 @@ Follow these steps to get the add-on installed on your system:
 
 For configuration please see: https://github.com/qdm12/ddns-updater
 
+### Custom Configuration File
+
+The add-on supports using a custom configuration file that takes precedence over the add-on configuration interface. This is useful for advanced users who want more control over the configuration or need to use features not exposed in the add-on UI.
+
+#### How to use config_custom.json:
+
+1. Create a file named `config_custom.json` in your Home Assistant Addon configuration directory (usually `/addon_configs\xxxxxxx_ddns-updater`)
+2. Use the standard DDNS-Updater JSON configuration format
+3. The add-on will automatically detect and use this file instead of generating the configuration from the add-on settings
+
+#### Example config_custom.json:
+```json
+{
+  "settings": [
+    {
+      "provider": "cloudflare",
+      "zone_identifier": "zone123456789",
+      "domain": "example.com",
+      "host": "@",
+      "ttl": 300,
+      "token": "your_cloudflare_token",
+      "ip_version": "ipv4"
+    },
+    {
+      "provider": "duckdns",
+      "domain": "mydomain.duckdns.org",
+      "token": "your_duckdns_token",
+      "ip_version": "ipv4"
+    }
+  ]
+}
+```
+
+**Note:** When using `config_custom.json`, the provider configuration in the add-on interface will be ignored. Make sure your custom configuration file is valid JSON and follows the DDNS-Updater configuration schema.
+
 Documentation for your DNS provider:
 - [Aliyun](https://github.com/qdm12/ddns-updater/blob/master/docs/aliyun.md)
 - [Allinkl](https://github.com/qdm12/ddns-updater/blob/master/docs/allinkl.md)

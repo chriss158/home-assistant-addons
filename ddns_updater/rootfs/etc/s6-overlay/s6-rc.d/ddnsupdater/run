@@ -29,18 +29,18 @@ if [ -f "${CUSTOM_SETTINGS_FILE}" ]; then
   SETTINGS_FILE="${CUSTOM_SETTINGS_FILE}"
   if [ "${LOG_LEVEL}" = "debug" ]; then
     bashio::log.debug "Custom configuration content:"
-    bashio::log.debug "${CUSTOM_SETTINGS_FILE}"
+    cat "${CUSTOM_SETTINGS_FILE}" | jq '.'
   fi
 else
   bashio::log.info "Creating default configuration file from addon configuration: ${SETTINGS_FILE}"
   if [ "${LOG_LEVEL}" = "debug" ]; then
     bashio::log.debug "Raw addon providers configuration:"
-    bashio::log.debug "${PROVIDERS_JSON}"
+    echo "${PROVIDERS_JSON}" | jq '.'
   fi
   echo "{\"settings\": $(echo "${PROVIDERS_JSON}" | jq -s '.')}" > "${SETTINGS_FILE}"
   if [ "${LOG_LEVEL}" = "debug" ]; then
     bashio::log.debug "Generated configuration file content:"
-    bashio::log.debug "${SETTINGS_FILE}"
+    cat "${SETTINGS_FILE}" | jq '.'
   fi
 fi
 

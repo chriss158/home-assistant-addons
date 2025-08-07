@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.2
+
+- Improved debug output formatting with JSON pretty-printing
+- Fix missing customer_number as valid provider attribute
+
 ## 1.1.1
 
 - Enhanced debug logging to show configuration file contents

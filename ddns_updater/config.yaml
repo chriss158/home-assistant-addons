@@ -1,5 +1,5 @@
 ---
-version: 1.1.1
+version: 1.1.2
 slug: ddns-updater
 name: DDNS Updater
 init: false
@@ -57,6 +57,7 @@ schema:
       ip_version: list(ipv4|ipv6|ipv4 or ipv6)?
       ipv6_suffix: str?
       zone_identifier: str?
+      customer_number: str?
       group: str?
       ttl: int?
       token: password?

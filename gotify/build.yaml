@@ -9,4 +9,4 @@ codenotary:
   signer: edschbert@gmail.com
   base_image: edschbert@gmail.com
 args:
-  GOTIFY_VERSION: 2.6.1
+  GOTIFY_VERSION: 2.8.0

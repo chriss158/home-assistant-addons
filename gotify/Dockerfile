@@ -4,7 +4,7 @@ FROM $BUILD_FROM
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ARG BUILD_ARCH=amd64
-ARG GOTIFY_VERSION=2.5.0
+ARG GOTIFY_VERSION=2.8.0
 RUN \
     apt-get update \
     && apt-get install -y --no-install-recommends \

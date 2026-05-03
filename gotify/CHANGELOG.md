@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4
+
+- Update to Gotify 2.9.1
+
 ## 1.3
 
 - Update to Gotify 2.8.0

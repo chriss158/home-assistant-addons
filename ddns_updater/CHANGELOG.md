@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.0
+
+
 ## 1.1.2
 
 - Improved debug output formatting with JSON pretty-printing

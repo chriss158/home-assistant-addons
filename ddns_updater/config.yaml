@@ -1,11 +1,11 @@
 ---
-version: 1.1.2
+version: 1.2.0
 slug: ddns-updater
 name: DDNS Updater
 init: false
 description: >-
   Lightweight universal DDNS Updater
-url: https://github.com/chriss158/addons/tree/master/ddns-updater
+url: https://github.com/chriss158/home-assistant-addons/tree/main/ddns_updater
 init: false
 arch:
   - aarch64

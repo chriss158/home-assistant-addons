@@ -4,7 +4,7 @@ FROM $BUILD_FROM
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ARG BUILD_ARCH=amd64
-ARG DDNS_UPDATER_VERSION=2.9.0
+ARG DDNS_UPDATER_VERSION=2.10.0
 RUN \
     apt-get update \
     && apt-get install -y --no-install-recommends \

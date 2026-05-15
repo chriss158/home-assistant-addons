@@ -2,6 +2,10 @@
 
 ## 1.2.0
 
+- Update DDNS Updater to 2.10.0
+- Update ghcr.io/hassio-addons/debian-base/aarch64 tag to v9.3.0
+- Update ghcr.io/hassio-addons/debian-base/amd64tag to v9.3.0
+- Update ghcr.io/hassio-addons/debian-base/armv7 tag to v9.3.0
 
 ## 1.1.2
 

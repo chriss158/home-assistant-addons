@@ -12,5 +12,5 @@ Chriss158's [Home Assistant Apps](https://www.home-assistant.io/apps/).
 ## Apps
 
 * [Enhanced DuckDNS](enhanced-duckdns/)
-* [Gotify] (gotify/)
-* [DDNS-Updater] (ddns_updater/)
+* [Gotify](gotify/)
+* [DDNS-Updater](ddns_updater/)

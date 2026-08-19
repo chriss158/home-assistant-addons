@@ -271,14 +271,14 @@ GOTIFY_DATABASE_CONNECTION={{ .database_connection }}
 #
 # Type: text
 # Example: /var/lib/gotify/images
-# GOTIFY_UPLOADEDIMAGESDIR=data/images
+GOTIFY_UPLOADEDIMAGESDIR=/config/images
 
 # Directory scanned for plugin shared libraries on startup. Leave empty to
 # disable plugin loading.
 #
 # Type: text
 # Example: /var/lib/gotify/plugins
-# GOTIFY_PLUGINSDIR=data/plugins
+GOTIFY_PLUGINSDIR=/config/plugins
 
 # Allow unauthenticated users to register new user accounts via the public
 # registration endpoint.

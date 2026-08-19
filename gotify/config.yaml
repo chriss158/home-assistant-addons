@@ -8,11 +8,8 @@ description: >-
 url: https://github.com/chriss158/addons/tree/master/gotify
 init: false
 arch:
-  - armhf
-  - armv7
   - amd64
   - aarch64
-  - i386
 webui: http://[HOST]:[PORT:8069]
 ingress: true
 ingress_port: 80

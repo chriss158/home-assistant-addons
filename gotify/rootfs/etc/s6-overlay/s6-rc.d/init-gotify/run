@@ -1,7 +1,7 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Home Assistant Community Add-on: Gotify
+# Home Assistant Community App: Gotify
 # Configures Gotify
 # ==============================================================================
 
@@ -26,5 +26,9 @@ bashio::var.json \
     registration "$(bashio::config 'registration' false)" \
     | tempio \
         -template /etc/gotify/server.gtpl \
+<<<<<<< HEAD
         -out /etc/gotify/server.yml
+=======
+        -out /etc/gotify/server.env
+>>>>>>> bf5b624 (Refactor documentation and configuration for Gotify app; update usage instructions and drop support for armhf, armv7, and i386 architectures.)
 

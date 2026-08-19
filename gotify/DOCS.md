@@ -1,4 +1,4 @@
-# Home Assistant Add-on: Gotify
+# Home Assistant App: Gotify
 
 Gotify/server features a WebUI and functionality for:
 
@@ -8,13 +8,13 @@ Gotify/server features a WebUI and functionality for:
 
 ## Installation
 
-Follow these steps to get the add-on installed on your system:
+Follow these steps to get the app installed on your system:
 
-1. Navigate in your Home Assistant frontend to **Supervisor** -> **Add-on Store**.
-2. Find the "Gotify" add-on and click it.
+1. Navigate in your Home Assistant frontend to **Settings** -> **Apps** -> **Install app**.
+2. Find the "Gotify" app and click it.
 3. Click on the "INSTALL" button.
-4. Check the logs of the "Gotify" add-on to see if everything went well.
-5. Click the "OPEN WEB UI" button and login using: **admin** / **changeme**
+4. Check the logs of the "Gotify" app to see if everything went well.
+5. Click the "OPEN WEB UI" button and login using: **admin** / **admin**
 
 
 ## How to use
@@ -24,7 +24,7 @@ Follow these steps to get the add-on installed on your system:
 
 **Note**: _Please change the default password in the web ui!_
 
-### Add-on configuration with internal SQLite3 database:
+### App configuration with internal SQLite3 database:
 
 ```yaml
 ssl: false
@@ -34,7 +34,7 @@ database: sqlite3
 registration: true
 ```
 
-### Add-on configuration with external MySQL database:
+### App configuration with external MySQL database:
 
 ```yaml
 ssl: false

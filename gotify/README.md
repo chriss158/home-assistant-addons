@@ -1,4 +1,4 @@
-# Home Assistant Add-on: Gotify
+# Home Assistant App: Gotify
 
 A simple open-source and self-hosted server for sending and receiving messages
 

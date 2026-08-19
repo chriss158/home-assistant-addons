@@ -25,6 +25,6 @@ bashio::var.json \
     database_connection $DATABASE_CONNECTION \
     registration "$(bashio::config 'registration' false)" \
     | tempio \
-        -template /etc/gotify/config.gtpl \
-        -out /etc/gotify/config.yml
+        -template /etc/gotify/server.gtpl \
+        -out /etc/gotify/server.yml
 

@@ -4,7 +4,7 @@ FROM $BUILD_FROM
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ARG BUILD_ARCH=amd64
-ARG GOTIFY_VERSION=2.9.1
+ARG GOTIFY_VERSION=3.0.0
 RUN \
     apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -13,10 +13,7 @@ RUN \
     \
     && mkdir /opt/gotify \   
     && ARCH="${BUILD_ARCH}" \
-    && if [ "${BUILD_ARCH}" = "i386" ]; then ARCH="386"; \
-       elif [ "${BUILD_ARCH}" = "armv7" ]; then ARCH="arm-7"; \
-       elif [ "${BUILD_ARCH}" = "armhf" ]; then ARCH="arm64"; \
-       elif [ "${BUILD_ARCH}" = "armhf" ]; then ARCH="arm64"; \
+    && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; \
        fi \
     && FILENAME_WO_EXT="gotify-linux-${ARCH}" \
     && wget -O gotify.zip \

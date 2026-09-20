@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6
+
+- Update to Gotify 3.1.1
+
 ## 1.5
 
 - Update to Gotify 3.0.0
